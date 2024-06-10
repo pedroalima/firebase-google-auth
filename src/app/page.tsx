@@ -1,9 +1,21 @@
 "use client";
 
+import { auth } from "@/services/firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+
 export default function Home() {
 
   const handleGoogleSignIn = () => {
-    console.log("Click");
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
