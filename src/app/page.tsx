@@ -29,6 +29,7 @@ export default function Home() {
       {userProfile ? (
         <div className="flex flex-col justify-center items-center gap-5">
           {userProfile.photoURL && <Image src={userProfile.photoURL} width="300" height="300" className="rounded-full w-16" alt="foto de perfil" />}
+          <h3>Olá <strong>{userProfile.displayName}</strong></h3>
           <button 
             className="cursor-pointer px-6 py-2 border border-white rounded-lg"
             onClick={handleGoogleLogout}
